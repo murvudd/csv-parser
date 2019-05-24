@@ -54,3 +54,4 @@ def main(in_file: str, out_file: str, in_delimiter: str, no_of_lines: int, out_d
 if __name__ == '__main__':
     # main(argv[1], argv[2], argv[3], argv[4], int(argv[5]))
     main(argv[1], argv[2], argv[3], int(argv[4]))
+#todo find reason why does shell return '\t' as literal string not code for tab
