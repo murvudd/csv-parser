@@ -15,7 +15,7 @@ def progress(i: int, no_lines: int):
     print("percentage {0:.2f}".format((i / no_lines) * 100))
 
 
-def main(in_file: str, out_file: str, in_delimiter: str, out_delimiter: str, no_of_lines: int, encoding: str = 'utf-8-sig'):
+def main(in_file: str, out_file: str, in_delimiter: str, no_of_lines: int, out_delimiter: str = '\t', encoding: str = 'utf-8-sig'):
     """
 
     :param in_file: str of file path
@@ -31,8 +31,9 @@ def main(in_file: str, out_file: str, in_delimiter: str, out_delimiter: str, no_
         with open(out_file, mode='w', encoding=encoding) as out:
             while True:
                 try:
-                    # row = reader.__next__().split(in_delimiter)
-                    row = inf.readline(no_of_lines).split(in_delimiter)
+
+                    row = inf.__next__().split(in_delimiter)
+                    # row = inf.readline(no_of_lines).split(in_delimiter)
                     [out.write("{}{} ".format(x, out_delimiter)) for x in row[:-1]]
                     out.write(row[-1])
                     i += 1
@@ -51,4 +52,5 @@ def main(in_file: str, out_file: str, in_delimiter: str, out_delimiter: str, no_
 
 
 if __name__ == '__main__':
-    main(argv[1], argv[2], argv[3], argv[4], int(argv[5]))
+    # main(argv[1], argv[2], argv[3], argv[4], int(argv[5]))
+    main(argv[1], argv[2], argv[3], int(argv[4]))
